@@ -1,0 +1,53 @@
+NEURON FOUNDRY - GRID LIST
+
+B = batch items processed together
+R = saved previous runs
+T = token IDs in all token lists and context-grid rows
+D = context dimensions
+P = pixels
+S = symbols
+L = layers during the backward pass
+N = neurons
+I = input positions and matching weights inside a neuron
+
+PRIORITY 1 = delete after last use
+PRIORITY 2 = delete after the cycle
+PRIORITY 3 = delete when the conversation ends
+PRIORITY 4 = keep permanently
+
+CONTEXT GRAPHS
+
+Text context             [T, D]          priority 4
+  representation: text symbols [T,S]
+Image context            [T, D]          priority 4
+  representation: colour [T,P,3] · pixel positions [T,P,2] · focal point [T,2]
+Current scene            [T, D]          priority 4
+  representation: token ID = actual value [T]
+
+LIVE INPUT GRIDS
+
+Text tokens              [B, T]          priority 2 or 3
+Image tokens             [B, T, 3]       priority 2 or 3
+Current-scene tokens     [B, R, T]       priority 2 or 3
+
+INPUT NEURONS
+
+Input reference lists    [N, T]          priority 2
+Input neuron outputs     [N]             priority 2
+
+HIDDEN NEURONS
+
+Input reference lists    [N, I]          priority 4
+Weights                  [N, I]          priority 4
+Biases                   [N]              priority 4
+Neuron outputs           [N]              priority 2
+
+OUTPUT NEURONS
+
+Weights                  [N, I]          priority 4
+Biases                   [N]              priority 4
+Output scores            [N]             priority 3
+
+Temporary context lookups and equation working values: priority 1
+Neuron blame            [B, L, N]        priority 2
+Weight blame            [B, L, N, I]     priority 2

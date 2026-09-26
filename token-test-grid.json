@@ -1,0 +1,20 @@
+{
+  "format": "neuron-foundry-token-test-v1",
+  "purpose": "Small test-only token grids for connecting dynamic context matching.",
+  "text": {
+    "contextShape": "[T,D]",
+    "dimensions": 8,
+    "tokens": [
+      { "id": 0, "symbol": "t", "context": [1, 0, 1, 0, -1, 0, 1, 0] },
+      { "id": 1, "symbol": "h", "context": [1, 0, 1, 0, -1, 0, 0, 1] },
+      { "id": 2, "symbol": "th", "context": [1, 1, 1, 0, -1, 0, 1, 1] },
+      { "id": 3, "symbol": "Space", "context": [0, 0, 0, 0, 0, 0, 0, 0] }
+    ],
+    "testInputTokenIds": [2, 3, 0, 1]
+  },
+  "currentScene": {
+    "tokenShape": "[R,T]",
+    "contextShape": "[T,D]",
+    "records": [[0, 1, 2], [2, 1, 0]]
+  }
+}

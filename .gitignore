@@ -1,0 +1,24 @@
+# Local credentials and runtime settings
+.env
+.env.*
+!.env.example
+
+# Python environments and generated files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Never commit trained model state or supplied pretrained weights
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+checkpoints/
+weights/
+models/
+
+# Local editor and operating-system files
+.DS_Store
+Thumbs.db
+
